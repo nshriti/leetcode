@@ -1,0 +1,23 @@
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        // int expectedNums[] = nums;
+        int dup = 0;
+        int k = nums.length -1 ;
+        for (int i=0; i<= k; i++) {
+            if(nums[i] == val) {
+                dup ++;
+                nums[i] = nums[i] - val;
+                swap(nums, i, k);
+                i--;
+                k--;
+            }
+        }
+        return nums.length - dup;
+    }
+
+    private static void swap(int arr[], int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+}
